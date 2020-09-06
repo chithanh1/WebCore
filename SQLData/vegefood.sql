@@ -3,9 +3,10 @@ go
 use VegeFood
 go
 
-create table User(
+create table Users(
+    Id int IDENTITY(1, 1) primary key,
     Name nvarchar(100) not null,
-	Username nvarchar(100) primary key,
+	Username nvarchar(100) not null,
     Password nvarchar(200) not null,
 	Image nvarchar(200),
     Birthday datetime,
@@ -27,13 +28,15 @@ create table Category(
 	Node nvarchar(100)
 )
 
-create table Product(
+create table Products(
     Id int IDENTITY(1, 1) primary key,
 	CategoryId int not null,
 	Name nvarchar(50) not null,
+	Image nvarchar(100) not null,
 	Amount int not null,
 	Price int not null,
 	Sale int not null,
 	Description nvarchar(100),
 	Status nvarchar(10)
 )
+
