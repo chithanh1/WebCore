@@ -6,10 +6,12 @@ go
 create table Users(
     Id int IDENTITY(1, 1) primary key,
     Name nvarchar(100) not null,
+	Age int not null,
 	Username nvarchar(100) not null,
     Password nvarchar(200) not null,
 	Image nvarchar(200),
     Birthday datetime,
+	Email nvarchar(100) not null,
     Sex varchar(10) not null,
     Phone varchar(50) not null,
     Address nvarchar(50) not null,

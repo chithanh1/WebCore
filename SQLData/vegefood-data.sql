@@ -1,10 +1,10 @@
 use VegeFood
 
-insert into Users(Name, Username, Password, Image, Birthday, Sex, Phone, Address, Type, CreateAt, UpdateAt, LastLogin, Node, Status)
-values (N'Pham Hong Phuc', N'username1', 'f553cae45493a747aaf42114f0478ed1336cae5d0001ad370627b4bcde115732', N'/wwwroot/images/user/person_1.jpg', '1999-12-04', 'male', '123456789', N'Hai Duong', 'admin', GETDATE(), GETDATE(), GETDATE(), null, N'enable'),
-       (N'Nguyen Hong Phuc', N'username2', 'f553cae45493a747aaf42114f0478ed1336cae5d0001ad370627b4bcde115732', N'/wwwroot/images/user/person_2.jpg', '2000-01-01', 'male', '987654321', N'Thanh Hoa', 'user', GETDATE(), GETDATE(), GETDATE(), null, N'enable'),
-	   (N'Truong Hong Phuc', N'username3', 'f553cae45493a747aaf42114f0478ed1336cae5d0001ad370627b4bcde115732', N'/wwwroot/images/user/person_3.jpg', '1990-03-04', 'male', '135798642', N'Ha Noi', 'user', GETDATE(), GETDATE(), GETDATE(), null, N'enable'),
-	   (N'Vu Hong Phuc', N'username4', 'f553cae45493a747aaf42114f0478ed1336cae5d0001ad370627b4bcde115732', N'wwwroot/images/user/person_4.jpg', '1980-04-05', 'male', '112233447', N'Hoa Binh', 'user', GETDATE(), GETDATE(), GETDATE(), null, N'enalbe')
+insert into Users(Name, Age, Username, Password, Image, Birthday, Email, Sex, Phone, Address, Type, CreateAt, UpdateAt, LastLogin, Node, Status)
+values (N'Pham Hong Phuc', 21, N'username1', 'f553cae45493a747aaf42114f0478ed1336cae5d0001ad370627b4bcde115732', N'/wwwroot/images/user/person_1.jpg', '1999-12-04', N'phamhongphuc@gmail.com', 'male', '123456789', N'Hai Duong', 'admin', GETDATE(), GETDATE(), GETDATE(), null, N'enable'),
+       (N'Nguyen Hong Phuc', 20, N'username2', 'f553cae45493a747aaf42114f0478ed1336cae5d0001ad370627b4bcde115732', N'/wwwroot/images/user/person_2.jpg', '2000-01-01', N'nguyenhongphuc@gmail.com', 'male', '987654321', N'Thanh Hoa', 'user', GETDATE(), GETDATE(), GETDATE(), null, N'enable'),
+	   (N'Truong Hong Phuc', 30, N'username3', 'f553cae45493a747aaf42114f0478ed1336cae5d0001ad370627b4bcde115732', N'/wwwroot/images/user/person_3.jpg', '1990-03-04', N'truonghongphuc@gmail.com', 'male', '135798642', N'Ha Noi', 'user', GETDATE(), GETDATE(), GETDATE(), null, N'enable'),
+	   (N'Vu Hong Phuc', 40, N'username4', 'f553cae45493a747aaf42114f0478ed1336cae5d0001ad370627b4bcde115732', N'wwwroot/images/user/person_4.jpg', '1980-04-05', N'vuhongphuc@gmail.com', 'male', '112233447', N'Hoa Binh', 'user', GETDATE(), GETDATE(), GETDATE(), null, N'enalbe')
 
 insert into Category(Type, Description, Node)
 values (N'fruits', null, null),
