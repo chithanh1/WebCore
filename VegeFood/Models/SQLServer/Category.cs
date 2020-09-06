@@ -19,4 +19,16 @@ namespace VegeFood.Models.SQLServer
         [StringLength(100)]
         public string Node { get; set; }
     }
+
+    public class UpdateCategoryInfo
+    {
+        [StringLength(50)]
+        public string Type { get; set; }
+
+        [StringLength(100)]
+        public string Description { get; set; }
+
+        [StringLength(100)]
+        public string Node { get; set; }
+    }
 }
