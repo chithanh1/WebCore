@@ -7,6 +7,45 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\images\category\category-1.jpg" />
+    <None Include="wwwroot\images\category\category-2.jpg" />
+    <None Include="wwwroot\images\category\category-3.jpg" />
+    <None Include="wwwroot\images\category\category-4.jpg" />
+    <None Include="wwwroot\images\category\category.jpg" />
+    <None Include="wwwroot\images\common\about.jpg" />
+    <None Include="wwwroot\images\common\bg_1.jpg" />
+    <None Include="wwwroot\images\common\bg_2.jpg" />
+    <None Include="wwwroot\images\common\bg_3.jpg" />
+    <None Include="wwwroot\images\common\image_1.jpg" />
+    <None Include="wwwroot\images\common\image_2.jpg" />
+    <None Include="wwwroot\images\common\image_3.jpg" />
+    <None Include="wwwroot\images\common\image_4.jpg" />
+    <None Include="wwwroot\images\common\image_5.jpg" />
+    <None Include="wwwroot\images\common\image_6.jpg" />
+    <None Include="wwwroot\images\common\partner-1.png" />
+    <None Include="wwwroot\images\common\partner-2.png" />
+    <None Include="wwwroot\images\common\partner-3.png" />
+    <None Include="wwwroot\images\common\partner-4.png" />
+    <None Include="wwwroot\images\common\partner-5.png" />
+    <None Include="wwwroot\images\product\product-1.jpg" />
+    <None Include="wwwroot\images\product\product-10.jpg" />
+    <None Include="wwwroot\images\product\product-11.jpg" />
+    <None Include="wwwroot\images\product\product-12.jpg" />
+    <None Include="wwwroot\images\product\product-2.jpg" />
+    <None Include="wwwroot\images\product\product-3.jpg" />
+    <None Include="wwwroot\images\product\product-4.jpg" />
+    <None Include="wwwroot\images\product\product-5.jpg" />
+    <None Include="wwwroot\images\product\product-6.jpg" />
+    <None Include="wwwroot\images\product\product-7.jpg" />
+    <None Include="wwwroot\images\product\product-8.jpg" />
+    <None Include="wwwroot\images\product\product-9.jpg" />
+    <None Include="wwwroot\images\user\person_1.jpg" />
+    <None Include="wwwroot\images\user\person_2.jpg" />
+    <None Include="wwwroot\images\user\person_3.jpg" />
+    <None Include="wwwroot\images\user\person_4.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
   </ItemGroup>
 
