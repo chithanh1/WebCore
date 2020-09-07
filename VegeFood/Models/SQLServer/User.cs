@@ -17,7 +17,7 @@ namespace VegeFood.Models.SQLServer
 
         [Required(ErrorMessage = "Age is required")]
         [Range(17, 90, ErrorMessage = "Age between 17 and 90")]
-        public string Age { get; set; }
+        public int Age { get; set; }
 
         [Required(ErrorMessage = "Username is required")]
         [StringLength(100)]
@@ -83,7 +83,7 @@ namespace VegeFood.Models.SQLServer
 
         [Required(ErrorMessage = "Age is required")]
         [Range(17, 90, ErrorMessage = "Age between 17 and 90")]
-        public string Age { get; set; }
+        public int Age { get; set; }
 
         [Required(ErrorMessage = "Username is required")]
         [StringLength(100)]
@@ -124,11 +124,14 @@ namespace VegeFood.Models.SQLServer
 
     public class UpdateUserInfo
     {
+        [Required]
+        public int Id { get; set; }
+
         [StringLength(100)]
         public string Name { get; set; }
 
         [Range(17, 90, ErrorMessage = "Age between 17 and 90")]
-        public string Age { get; set; }
+        public int Age { get; set; }
 
         [StringLength(100)]
         public string Username { get; set; }
@@ -163,6 +166,8 @@ namespace VegeFood.Models.SQLServer
 
     public class UpdateAdminUser
     {
+        public int Id { get; set; }
+
         [IncludeArray(CheckArray = new object[] { "admin", "user", "customer" }, ErrorMessage = "Type is one of admin, user and customer")]
         [StringLength(10)]
         public string Type { get; set; }
