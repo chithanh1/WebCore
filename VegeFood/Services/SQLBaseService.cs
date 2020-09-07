@@ -16,12 +16,12 @@ namespace VegeFood.Services
             sqlData = new SQLData(option.Options);
         }
 
-        public SQLData SqlData
+        protected SQLData SqlData
         {
             get { return sqlData; }
         }
 
-        public DbContextOptionsBuilder<SQLData> Option
+        protected DbContextOptionsBuilder<SQLData> Option
         {
             get { return option; }
         }

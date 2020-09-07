@@ -35,15 +35,18 @@ namespace VegeFood.Models.SQLServer
         public int Sale { get; set; }
 
         [StringLength(100)]
-        public int Description { get; set; }
+        public string Description { get; set; }
 
         [StringLength(100)]
         [IncludeArray(true, CheckArray = new object[] { "enable", "disable" }, ErrorMessage = "Status is enable or disable")]
-        public int Status { get; set; }
+        public string Status { get; set; }
     }
 
     public class UpdateProductInfo
     {
+        [Required]
+        public int Id { get; set; }
+
         public int CategoryId { get; set; }
 
         [StringLength(50)]
@@ -62,10 +65,10 @@ namespace VegeFood.Models.SQLServer
         public int Sale { get; set; }
 
         [StringLength(100)]
-        public int Description { get; set; }
+        public string Description { get; set; }
 
         [StringLength(100)]
         [IncludeArray(true, CheckArray = new object[] { "enable", "disable" }, ErrorMessage = "Status is enable or disable")]
-        public int Status { get; set; }
+        public string Status { get; set; }
     }
 }
