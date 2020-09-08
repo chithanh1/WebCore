@@ -22,6 +22,8 @@ namespace VegeFood.Models.SQLServer
 
     public class UpdateCategoryInfo
     {
+        public int Id { get; set; }
+
         [StringLength(50)]
         public string Type { get; set; }
 
