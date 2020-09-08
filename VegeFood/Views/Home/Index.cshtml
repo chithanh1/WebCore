@@ -1,5 +1,4 @@
 ﻿@using VegeFood.Models.SQLServer;
-@using VegeFood;
 @model IEnumerable<Product>
 @{
     ViewData["Title"] = "Home Page";
@@ -218,3 +217,9 @@
         </div>
     </div>
 </section>
+
+@{
+    Html.RenderPartial("/Views/Materials/_Testimony.cshtml");
+    Html.RenderPartial("/Views/Materials/_Partner.cshtml");
+    Html.RenderPartial("/Views/Materials/_ftco.cshtml");
+}

@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using VegeFood.Models;
 using VegeFood.Models.SQLServer;
 using VegeFood.Services;
@@ -27,6 +26,18 @@ namespace VegeFood.Controllers
 
         [Route("/about")]
         public IActionResult About()
+        {
+            return View();
+        }
+
+        [Route("/block")]
+        public IActionResult Blog()
+        {
+            return View();
+        }
+
+        [Route("/contact")]
+        public IActionResult Contact()
         {
             return View();
         }
