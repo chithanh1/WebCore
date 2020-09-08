@@ -12,7 +12,7 @@ namespace VegeFood.Services
     {
         public ProductService(IConfiguration configuration) : base(configuration) { }
 
-        public Result InsertNewProduct(Product newProduct)
+        public Result InsertNewProduct(InsertProductInfo newProduct)
         {
             Product checkProduct = SqlData.Products.SingleOrDefault(x => x.Name == newProduct.Name);
             if (checkProduct != null) return new Result
@@ -20,8 +20,20 @@ namespace VegeFood.Services
                 status = false,
                 data = $"The product with name: {newProduct.Name} is exsist"
             };
-            newProduct.Status = "enable";
-            SqlData.Products.Add(newProduct);
+            Product product = new Product()
+            {
+                Name = newProduct.Name,
+                CategoryId = ProductConfig.category[newProduct.CategoryString],
+                Amount = newProduct.Amount,
+                Price = newProduct.Price,
+                Sale = newProduct.Sale,
+                Description = newProduct.Description
+            };
+            product.Image = "/images/product/product-1.jpg";
+            product.Rating = 0;
+            product.Sold = 0;
+            product.Status = "enable";
+            SqlData.Products.Add(product);
             int check = SqlData.SaveChanges();
             if (check > 0) return new Result
             {
@@ -35,7 +47,7 @@ namespace VegeFood.Services
             };
         }
 
-        public async Task<Result> InsertNewProductAsync(Product newProduct)
+        public async Task<Result> InsertNewProductAsync(InsertProductInfo newProduct)
         {
             Product checkProduct = await SqlData.Products.SingleOrDefaultAsync(x => x.Name == newProduct.Name);
             if (checkProduct != null) return new Result
@@ -43,10 +55,22 @@ namespace VegeFood.Services
                 status = false,
                 data = $"The product with name: {newProduct.Name} is exsist"
             };
-            newProduct.Status = "enable";
-            await SqlData.Products.AddAsync(newProduct);
+            Product product = new Product()
+            {
+                Name = newProduct.Name,
+                CategoryId = ProductConfig.category[newProduct.CategoryString],
+                Amount = newProduct.Amount,
+                Price = newProduct.Price,
+                Sale = newProduct.Sale,
+                Description = newProduct.Description
+            };
+            product.Image = "/images/product/product-1.jpg";
+            product.Rating = 0;
+            product.Sold = 0;
+            product.Status = "enable";
+            await SqlData.Products.AddAsync(product);
             int check = await SqlData.SaveChangesAsync();
-            if(check > 0) return new Result
+            if (check > 0) return new Result
             {
                 status = true,
                 data = null

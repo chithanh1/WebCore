@@ -19,14 +19,14 @@ create table Users(
 	CreateAt datetime not null,
 	UpdateAt datetime not null,
 	LastLogin datetime not null,
-    Node nvarchar(100),
+    Node nvarchar(1000),
 	Status nvarchar(10) not null
 )
 
 create table Category(
     Id int IDENTITY(1, 1) primary key,
 	Type nvarchar(50) not null,
-	Description nvarchar(100),
+	Description nvarchar(1000),
 	Node nvarchar(100)
 )
 
@@ -35,10 +35,11 @@ create table Products(
 	CategoryId int not null,
 	Name nvarchar(50) not null,
 	Image nvarchar(100) not null,
+    Rating int not null,
+    Sold int not null,
 	Amount int not null,
 	Price int not null,
 	Sale int not null,
-	Description nvarchar(100),
+	Description nvarchar(1000),
 	Status nvarchar(10)
 )
-

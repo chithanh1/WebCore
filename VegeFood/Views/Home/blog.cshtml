@@ -1,6 +1,8 @@
 ﻿@{
-    Html.RenderPartial("/Views/Materials/_Slider.cshtml");
+    ViewData["Title"] = "Blog";
 }
+
+<partial name="/Views/Materials/_Slider.cshtml" view-data="ViewData" />
 
 <section class="ftco-section ftco-degree-bg">
     <div class="container">

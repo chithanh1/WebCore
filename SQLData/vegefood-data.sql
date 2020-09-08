@@ -7,18 +7,21 @@ values (N'Pham Hong Phuc', 21, N'username1', 'f553cae45493a747aaf42114f0478ed133
 	   (N'Vu Hong Phuc', 40, N'username4', 'f553cae45493a747aaf42114f0478ed1336cae5d0001ad370627b4bcde115732', N'/images/user/person_4.jpg', '1980-04-05', N'vuhongphuc@gmail.com', 'male', '112233447', N'Hoa Binh', 'user', GETDATE(), GETDATE(), GETDATE(), null, N'enalbe')
 
 insert into Category(Type, Description, Node)
-values (N'fruits', null, null),
-       (N'juices', null, null),
-	   (N'vegetable', null, null),
-	   (N'dried', null, null)
+values (N'Vegetables', null, null),
+       (N'Fruits', null, null),
+	   (N'Juice', null, null),
+	   (N'Dried', null, null)
 
-insert into Products(CategoryId, Name, Image, Amount, Price, Sale, Description, Status)
-values (1, N'Bell Pepper', N'/images/product/product-1.jpg', 100, 100000, 10, null, 'enable'),
-       (2, N'Strawberry', N'/images/product/product-2.jpg', 150, 250000, 5, null, 'enable'),
-	   (3, N'Green Beans', N'/images/product/product-3.jpg', 20, 300000, 20, null, 'enable'),
-       (4, N'Purple Cabbage', N'/images/product/product-4.jpg', 40, 2500000, 30, null, 'enable'),
-	   (1, N'Tomatoe', N'/images/product/product-5.jpg', 300, 1000000, 40, null, 'enable'),
-       (2, N'Brocolli', N'/images/product/product-6.jpg', 150, 250000, 15, null, 'enable'),
-	   (3, N'Carrots', N'/images/product/product-7.jpg', 100, 100000, 10, null, 'enable'),
-       (4, N'Fruit Juice', N'/images/product/product-8.jpg', 150, 250000, 5, null, 'enable'),
-	   (1, N'product9', N'/images/product/product-9.jpg', 100, 100000, 10, null, 'enable')
+insert into Products(CategoryId, Name, Image, Rating, Sold, Amount, Price, Sale, Description, Status)
+values (1, N'Bell Pepper', N'/images/product/product-1.jpg', 100, 50, 100, 100000, 10, 'A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until.', 'enable'),
+       (2, N'Strawberry', N'/images/product/product-2.jpg', 100, 50, 150, 250000, 0, 'A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until.', 'enable'),
+	   (3, N'Green Beans', N'/images/product/product-3.jpg', 90, 20, 20, 300000, 0, 'A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until.', 'enable'),
+       (4, N'Purple Cabbage', N'/images/product/product-4.jpg', 50, 10, 40, 2500000, 0, 'A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until.', 'enable'),
+	   (1, N'Tomatoe', N'/images/product/product-5.jpg', 120, 90, 300, 1000000, 30, 'A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until.', 'enable'),
+       (2, N'Brocolli', N'/images/product/product-6.jpg', 130, 50, 150, 250000, 0, 'A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until.', 'enable'),
+	   (3, N'Carrots', N'/images/product/product-7.jpg', 90, 20, 100, 100000, 0, 'A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until.', 'enable'),
+       (4, N'Fruit Juice', N'/images/product/product-8.jpg', 100, 50, 150, 250000, 0, 'A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until.', 'enable'),
+	   (1, N'Onion', N'/images/product/product-9.jpg', 50, 10, 100, 100000, 0, 'A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until.', 'enable'),
+	  (2, N'Apple', N'/images/product/product-10.jpg', 50, 10, 100, 100000, 0, 'A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until.', 'enable'),
+	   (3, N'Garlic', N'/images/product/product-11.jpg', 50, 10, 100, 100000, 0, 'A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until.', 'enable'),
+	   (4, N'Chilli', N'/images/product/product-13.jpg', 50, 10, 100, 100000, 0, 'A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until.', 'enable')

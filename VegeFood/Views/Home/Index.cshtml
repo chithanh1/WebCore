@@ -167,11 +167,15 @@
                                 <div class="d-flex">
                                     <div class="pricing">
                                         <p class="price">
-                                            <span class="mr-2 price-dc">$@product.Price</span>
                                             @if (product.Sale > 0)
                                             {
-                                                int price = product.Sale * product.Price / 100;
-                                                <span class="price-sale">$@price</span>
+                                                int salePrice = product.Sale * product.Price / 100;
+                                                <span class="mr-2 price-dc">$@product.Price</span>
+                                                <span class="price-sale">$@salePrice</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="price">$@product.Price</span>
                                             }
                                         </p>
                                     </div>
@@ -218,8 +222,6 @@
     </div>
 </section>
 
-@{
-    Html.RenderPartial("/Views/Materials/_Testimony.cshtml");
-    Html.RenderPartial("/Views/Materials/_Partner.cshtml");
-    Html.RenderPartial("/Views/Materials/_ftco.cshtml");
-}
+<partial name="/Views/Materials/_Testimony.cshtml" />
+<partial name="/Views/Materials/_Partner.cshtml" />
+<partial name="/Views/Materials/_ftco.cshtml" />
