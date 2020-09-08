@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VegeFood.Models.SQLServer
 {
-    [Table("category")]
+    [Table("Category")]
     public class Category
     {
         [Key]

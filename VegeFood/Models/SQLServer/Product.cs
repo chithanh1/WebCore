@@ -5,7 +5,7 @@ using VegeFood.Support;
 
 namespace VegeFood.Models.SQLServer
 {
-    [Table("Product")]
+    [Table("Products")]
     public class Product
     {
         [Key]
