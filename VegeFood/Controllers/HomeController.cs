@@ -11,14 +11,10 @@ namespace VegeFood.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly IConfiguration _configuration;
         private ProductService productService;
 
-        public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
+        public HomeController(IConfiguration configuration)
         {
-            _logger = logger;
-            _configuration = configuration;
             productService = new ProductService(configuration);
         }
 
@@ -27,6 +23,12 @@ namespace VegeFood.Controllers
         {
             List<Product> productList = productService.GetListProducts();
             return View(productList);
+        }
+
+        [Route("/about")]
+        public IActionResult About()
+        {
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
