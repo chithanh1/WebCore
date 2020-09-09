@@ -289,5 +289,57 @@ namespace VegeFood.Services.SQLService
                 data = $"Do not update user with id: {userId}"
             };
         }
+
+        public Result Login(string username, string password)
+        {
+            User user = SqlData.Users.SingleOrDefault(x => x.Username == username);
+            if (user == null) return new Result
+            {
+                status = false,
+                data = "Wrong username or password"
+            };
+            string checkPassword = Secret.SHA256Hash(password);
+            if (checkPassword != user.Password) return new Result
+            {
+                status = false,
+                data = "Wrong username or password"
+            };
+            if (user.Status == "disable") return new Result
+            {
+                status = false,
+                data = "this account is not enable"
+            };
+            return new Result
+            {
+                status = true,
+                data = null
+            };
+        }
+
+        public async Task<Result> LoginAsync(string username, string password)
+        {
+            User user = await SqlData.Users.SingleOrDefaultAsync(x => x.Username == username);
+            if (user == null) return new Result
+            {
+                status = false,
+                data = "Wrong username or password"
+            };
+            string checkPassword = Secret.SHA256Hash(password);
+            if (checkPassword != user.Password) return new Result
+            {
+                status = false,
+                data = "Wrong username or password"
+            };
+            if (user.Status == "disable") return new Result
+            {
+                status = false,
+                data = "this account is not enable"
+            };
+            return new Result
+            {
+                status = true,
+                data = null
+            };
+        }
     }
 }
