@@ -9,4 +9,4 @@
 
 ### tài liệu tham khảo
 - https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/attributes
-- https://github.com/ColorlibHQ/AdminLTE
+- xem trang admin template tại [đây](https://github.com/ColorlibHQ/AdminLTE)
