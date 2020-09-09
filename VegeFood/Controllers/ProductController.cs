@@ -32,6 +32,8 @@ namespace VegeFood.Controllers
         {
             Product product = productService.GetProductById(productId);
             if (product == null) return BadRequest();
+            List<Product> productList = productService.GetListProducts();
+            ViewBag.ProductList = productList;
             return View(product);
         }
     }
