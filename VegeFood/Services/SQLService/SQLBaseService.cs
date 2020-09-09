@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using VegeFood.Models.SQLServer;
+using VegeFood.Models.SQLModel;
 
-namespace VegeFood.Services
+namespace VegeFood.Services.SQLService
 {
     public class SQLBaseService
     {

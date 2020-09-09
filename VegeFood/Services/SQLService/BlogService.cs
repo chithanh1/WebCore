@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace VegeFood.Services
+namespace VegeFood.Services.SQLService
 {
     public class BlogService: SQLBaseService
     {

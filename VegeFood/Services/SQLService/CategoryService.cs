@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using VegeFood.Models;
-using VegeFood.Models.SQLServer;
+using VegeFood.Models.SQLModel;
 
-namespace VegeFood.Services
+namespace VegeFood.Services.SQLService
 {
     public class CategoryService: SQLBaseService
     {

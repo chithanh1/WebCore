@@ -3,8 +3,8 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using VegeFood.Models;
-using VegeFood.Models.SQLServer;
-using VegeFood.Services;
+using VegeFood.Models.SQLModel;
+using VegeFood.Services.SQLService;
 
 namespace VegeFood.Controllers
 {

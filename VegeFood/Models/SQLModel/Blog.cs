@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace VegeFood.Models.SQLServer
+namespace VegeFood.Models.SQLModel
 {
     public class Blog
     {

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using VegeFood.Support;
 
-namespace VegeFood.Models.SQLServer
+namespace VegeFood.Models.SQLModel
 {
     [Table("Users")]
     public class User

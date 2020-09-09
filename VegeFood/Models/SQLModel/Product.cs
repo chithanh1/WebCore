@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using VegeFood.Support;
 
-namespace VegeFood.Models.SQLServer
+namespace VegeFood.Models.SQLModel
 {
     [Table("Products")]
     public class Product
