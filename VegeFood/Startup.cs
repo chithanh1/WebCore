@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,6 +25,8 @@ namespace VegeFood
             services.AddScoped<SQLData>();
 
             services.AddControllersWithViews();
+
+            services.Configure<JWTConfig>(Configuration.GetSection("JWT"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,11 +49,20 @@ namespace VegeFood
 
             app.UseAuthorization();
 
+            //check authorization
+            //string secretKey = Configuration.GetSection("JWT").GetValue<string>("SecretKey");
+            //string mainUrl = Configuration.GetValue<string>("Develop:ApplicationUrl");
+            //app.UseMiddleware<AuthorizedMiddleware>(secretKey, mainUrl);
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllers();
+            });
+
+            app.Run(async context =>
+            {
+                context.Response.StatusCode = StatusCodes.Status404NotFound;
+                await context.Response.WriteAsync("Page not found");
             });
         }
     }
