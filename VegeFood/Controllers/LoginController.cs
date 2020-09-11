@@ -29,7 +29,7 @@ namespace VegeFood.Controllers
             return View();
         }
 
-        public IActionResult Login(LoginUserInfo loginUser)
+        public IActionResult LoginWithUsernameAndPassword(LoginUserInfo loginUser)
         {
             if (ModelState.IsValid)
             {
@@ -38,6 +38,16 @@ namespace VegeFood.Controllers
                 else return RedirectToAction("Index", "Home");
             }
             return RedirectToAction("Index", "Login");
+        }
+
+        public IActionResult LoginWithGoogle()
+        {
+            return View();
+        }
+
+        public IActionResult LoginWithFacebook()
+        {
+            return View();
         }
 
         [HttpPost]

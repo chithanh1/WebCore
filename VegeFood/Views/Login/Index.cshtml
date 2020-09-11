@@ -29,7 +29,7 @@
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign In</p>
-                @using (Html.BeginForm("Login", "Login"))
+                @using (Html.BeginForm("LoginWithUsernameAndPassword", "Login"))
                 {
                     @Html.AntiForgeryToken()
                     <div class="input-group mb-3">
