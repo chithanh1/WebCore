@@ -25,7 +25,7 @@ create table Users(
 
 create table Category(
     Id int IDENTITY(1, 1) primary key,
-	Type nvarchar(50) not null,
+	Name nvarchar(50) not null,
 	Description nvarchar(1000),
 	Node nvarchar(100)
 )
@@ -42,4 +42,14 @@ create table Products(
 	Sale int not null,
 	Description nvarchar(1000),
 	Status nvarchar(10)
+)
+
+create table Blogs(
+    Id int IDENTITY(1, 1) primary key,
+	CategoryId int not null,
+	UserId int not null,
+	Title varchar(500) not null,
+	PreviewImage nvarchar(200) not null,
+	PreviewText nvarchar(500) not null,
+	CreateAt datetime not null
 )

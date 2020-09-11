@@ -14,11 +14,11 @@ namespace VegeFood.Services.SQLService
 
         public Result InsertCategory(Category newCategory)
         {
-            Category checkCategory = SqlData.Categories.SingleOrDefault(x => x.Type == newCategory.Type);
+            Category checkCategory = SqlData.Categories.SingleOrDefault(x => x.Name == newCategory.Name);
             if (checkCategory != null) return new Result
             {
                 status = false,
-                data = $"the type: {newCategory.Type} is exsist"
+                data = $"the type: {newCategory.Name} is exsist"
             };
             SqlData.Categories.Add(newCategory);
             int check = SqlData.SaveChanges();
@@ -36,11 +36,11 @@ namespace VegeFood.Services.SQLService
 
         public async Task<Result> InsertCategoryAsync(Category newCategory)
         {
-            Category checkCategory = await SqlData.Categories.SingleOrDefaultAsync(x => x.Type == newCategory.Type);
+            Category checkCategory = await SqlData.Categories.SingleOrDefaultAsync(x => x.Name == newCategory.Name);
             if (checkCategory != null) return new Result
             {
                 status = false,
-                data = $"the type: {newCategory.Type} is exsist"
+                data = $"the type: {newCategory.Name} is exsist"
             };
             await SqlData.Categories.AddAsync(newCategory);
             int check = await SqlData.SaveChangesAsync();
@@ -88,7 +88,7 @@ namespace VegeFood.Services.SQLService
                 status = false,
                 data = $"the category with id: {updateCategory.Id} do not exist"
             };
-            if (updateCategory.Type != null) category.Type = updateCategory.Type;
+            if (updateCategory.Name != null) category.Name = updateCategory.Name;
             if (updateCategory.Description != null) category.Description = updateCategory.Description;
             if (updateCategory.Node != null) category.Node = updateCategory.Node;
             int check = SqlData.SaveChanges();
@@ -112,7 +112,7 @@ namespace VegeFood.Services.SQLService
                 status = false,
                 data = $"the category with id: {updateCategory.Id} do not exist"
             };
-            if (updateCategory.Type != null) category.Type = updateCategory.Type;
+            if (updateCategory.Name != null) category.Name = updateCategory.Name;
             if (updateCategory.Description != null) category.Description = updateCategory.Description;
             if (updateCategory.Node != null) category.Node = updateCategory.Node;
             int check = await SqlData.SaveChangesAsync();

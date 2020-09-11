@@ -30,12 +30,6 @@ namespace VegeFood.Controllers
             return View();
         }
 
-        [Route("/block")]
-        public IActionResult Blog()
-        {
-            return View();
-        }
-
         [Route("/contact")]
         public IActionResult Contact()
         {

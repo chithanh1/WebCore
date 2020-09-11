@@ -18,6 +18,7 @@ namespace VegeFood.Controllers
         }
 
         [Route("/shop")]
+        [HttpGet]
         public IActionResult Index()
         {
             List<Product> productList = productService.GetListProducts();
@@ -28,6 +29,7 @@ namespace VegeFood.Controllers
         }
 
         [Route("/shop/detail/{productId}")]
+        [HttpGet]
         public IActionResult Detail(int productId)
         {
             Product product = productService.GetProductById(productId);

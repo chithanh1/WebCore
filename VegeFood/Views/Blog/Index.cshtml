@@ -1,5 +1,103 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using VegeFood.Models.SQLModel;
+@model IEnumerable<Blog>
 @{
+    ViewData["Title"] = "Blog";
+    List<Category> categorieList = ViewBag.CategoryList;
 }
+
+<partial name="/Views/Materials/_Slider.cshtml" view-data="ViewData" />
+
+<section class="ftco-section ftco-degree-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 ftco-animate">
+                <div class="row">
+                    @foreach (Blog blog in Model)
+                    {
+                        <div class="col-md-12 d-flex ftco-animate">
+                            <div class="blog-entry align-self-stretch d-md-flex">
+                                <a href="/blog/detail/@blog.Id" class="block-20" style="background-image: url(@blog.PreviewImage);">
+                                </a>
+                                <div class="text d-block pl-md-4">
+                                    <div class="meta mb-3">
+                                        <div><a href="#">@blog.CreateAt</a></div>
+                                        <div><a href="#">Admin</a></div>
+                                        <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                                    </div>
+                                    <h3 class="heading"><a href="/blog/detail/@blog.Id">@blog.Title</a></h3>
+                                    <p>@blog.PreviewText</p>
+                                    <p><a href="/blog/detail/@blog.Id" class="btn btn-primary py-2 px-3">Read more</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div> <!-- .col-md-8 -->
+            <div class="col-lg-4 sidebar ftco-animate">
+                <div class="sidebar-box">
+                    <form action="#" class="search-form">
+                        <div class="form-group">
+                            <span class="icon ion-ios-search"></span>
+                            <input type="text" class="form-control" placeholder="Search...">
+                        </div>
+                    </form>
+                </div>
+                <div class="sidebar-box ftco-animate">
+                    <h3 class="heading">Categories</h3>
+                    <ul class="categories">
+                        @foreach (Category category in categorieList)
+                        {
+                            <li><a asp-controller="Blog" asp-action="Index">@category.Name <span>(12)</span></a></li>
+                        }
+                    </ul>
+                </div>
+
+                <div class="sidebar-box ftco-animate">
+                    <h3 class="heading">Recent Blog</h3>
+                    @{
+                        int count = 0;
+                        foreach (Blog item in Model)
+                        {
+                            if (count > 3) break;
+                            count++;
+                            <div class="block-21 mb-4 d-flex">
+                                <a class="blog-img mr-4" style="background-image: url(@item.PreviewImage);"></a>
+                                <div class="text">
+                                    <h3 class="heading-1"><a href="/blog/detail/@item.Id">@item.Title</a></h3>
+                                    <div class="meta">
+                                        <div><a href="#"><span class="icon-calendar"></span> @item.CreateAt</a></div>
+                                        <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                                        <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+
+                <div class="sidebar-box ftco-animate">
+                    <h3 class="heading">Tag Cloud</h3>
+                    <div class="tagcloud">
+                        @{
+                            string[] tags = new string[]
+                            {
+                                "fruits", "tomatoe", "mango", "apple", "carrots",
+                                "orange", "pepper", "eggplant"
+                            };
+                            foreach (string tag in tags)
+                            {
+                                <a href="#" class="tag-cloud-link">@tag</a>
+                            }
+                        }
+                    </div>
+                </div>
+
+                <div class="sidebar-box ftco-animate">
+                    <h3 class="heading">Paragraph</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section> <!-- .section -->

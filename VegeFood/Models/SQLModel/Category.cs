@@ -11,7 +11,7 @@ namespace VegeFood.Models.SQLModel
 
         [Required(ErrorMessage = "Type is required")]
         [StringLength(50)]
-        public string Type { get; set; }
+        public string Name { get; set; }
 
         [StringLength(100)]
         public string Description { get; set; }
@@ -25,7 +25,7 @@ namespace VegeFood.Models.SQLModel
         public int Id { get; set; }
 
         [StringLength(50)]
-        public string Type { get; set; }
+        public string Name { get; set; }
 
         [StringLength(100)]
         public string Description { get; set; }
