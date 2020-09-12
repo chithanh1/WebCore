@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.Extensions.Logging;
+using System.ComponentModel.DataAnnotations;
 
 namespace VegeFood.Support
 {
-
     public sealed class IncludeArray : ValidationAttribute
     {
         public object[] CheckArray { get; set; }
@@ -25,6 +26,21 @@ namespace VegeFood.Support
                     break;
                 }
             return result;
+        }
+    }
+
+    public class AuthorizedAttribute: ResultFilterAttribute
+    {
+        public void OnActionExecuting(ActionExecutingContext context)
+        {
+            // Do something before the action executes.
+            context.HttpContext.Request.Headers.Add("abc", "123");
+        }
+
+        public void OnActionExecuted(ActionExecutedContext context)
+        {
+            // Do something after the action executes.
+            context.HttpContext.Request.Headers.Add("abc", "123");
         }
     }
 }

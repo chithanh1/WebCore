@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using VegeFood.Models.SQLModel;
+using VegeFood.Support;
 
 namespace VegeFood
 {
@@ -26,6 +27,8 @@ namespace VegeFood
             services.AddScoped<SQLData>();
 
             services.AddControllersWithViews();
+
+            services.AddScoped<AuthorizedAttribute>();
 
             services.AddAuthentication().AddGoogle(options =>
             {
@@ -58,11 +61,6 @@ namespace VegeFood
             app.UseRouting();
 
             app.UseAuthorization();
-
-            //check authorization
-            //string secretKey = Configuration.GetSection("JWT").GetValue<string>("SecretKey");
-            //string mainUrl = Configuration.GetValue<string>("Develop:ApplicationUrl");
-            //app.UseMiddleware<AuthorizedMiddleware>(secretKey, mainUrl);
 
             app.UseEndpoints(endpoints =>
             {
