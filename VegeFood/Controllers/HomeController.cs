@@ -2,31 +2,25 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using VegeFood.Models;
 using VegeFood.Models.SQLModel;
 using VegeFood.Services.SQLService;
-using VegeFood.Support;
 
 namespace VegeFood.Controllers
 {
     public class HomeController : Controller
     {
         private ProductService productService;
-        private ILogger<HomeController> logger;
 
-        public HomeController(IConfiguration configuration, ILogger<HomeController> logger)
+        public HomeController(IConfiguration configuration)
         {
             productService = new ProductService(configuration);
-            this.logger = logger;
         }
 
         [Route("/home")]
-        [ServiceFilter(typeof(AuthorizedAttribute))]
         public IActionResult Index()
         {
             List<Product> productList = productService.GetListProducts();
-            logger.LogInformation(Request.HttpContext.Request.Headers["abc"]);
             return View(productList);
         }
 

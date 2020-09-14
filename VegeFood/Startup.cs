@@ -28,8 +28,6 @@ namespace VegeFood
 
             services.AddControllersWithViews();
 
-            services.AddScoped<AuthorizedAttribute>();
-
             services.AddAuthentication().AddGoogle(options =>
             {
                 IConfigurationSection googleAuthNSection =

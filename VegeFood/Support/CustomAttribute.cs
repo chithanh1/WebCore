@@ -28,19 +28,4 @@ namespace VegeFood.Support
             return result;
         }
     }
-
-    public class AuthorizedAttribute: ResultFilterAttribute
-    {
-        public void OnActionExecuting(ActionExecutingContext context)
-        {
-            // Do something before the action executes.
-            context.HttpContext.Request.Headers.Add("abc", "123");
-        }
-
-        public void OnActionExecuted(ActionExecutedContext context)
-        {
-            // Do something after the action executes.
-            context.HttpContext.Request.Headers.Add("abc", "123");
-        }
-    }
 }
