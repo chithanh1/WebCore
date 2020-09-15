@@ -6,7 +6,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using VegeFood.Models.SQLModel;
-using VegeFood.Support;
 
 namespace VegeFood
 {
@@ -26,7 +25,13 @@ namespace VegeFood
             services.AddDbContext<SQLData>();
             services.AddScoped<SQLData>();
 
-            services.AddControllersWithViews();
+            services.AddDefaultIdentity<IdentityUser>(options =>
+        options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<SQLData>();
+
+            services.AddRazorPages();
+
+            //services.AddControllersWithViews();
 
             services.AddAuthentication().AddGoogle(options =>
             {
