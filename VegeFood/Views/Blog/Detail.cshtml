@@ -4,6 +4,7 @@
     ViewData["Title"] = "Blog";
     List<Blog> blogList = ViewBag.BlogList;
     List<Category> categorieList = ViewBag.CategoryList;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <partial name="/Views/Materials/_Slider.cshtml" view-data="ViewData" />

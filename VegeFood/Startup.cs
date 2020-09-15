@@ -70,11 +70,11 @@ namespace VegeFood
                 endpoints.MapControllers();
             });
 
-            app.Run(async context =>
-            {
-                context.Response.StatusCode = StatusCodes.Status404NotFound;
-                await context.Response.WriteAsync("Page not found");
-            });
+            //app.Run(async context =>
+            //{
+            //    context.Response.StatusCode = StatusCodes.Status404NotFound;
+            //    await context.Response.WriteAsync("Page not found");
+            //});
         }
     }
 }

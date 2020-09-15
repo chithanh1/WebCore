@@ -4,6 +4,7 @@
     ViewData["Title"] = "Product Detail";
     ViewData["Image"] = Model.Image;
     List<Product> productList = ViewBag.ProductList;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <partial name="/Views/Materials/_Slider.cshtml" view-data="ViewData" />

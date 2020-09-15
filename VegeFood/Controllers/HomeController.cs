@@ -11,10 +11,12 @@ namespace VegeFood.Controllers
     public class HomeController : Controller
     {
         private ProductService productService;
+        private UserService userService;
 
         public HomeController(IConfiguration configuration)
         {
             productService = new ProductService(configuration);
+            userService = new UserService(configuration);
         }
 
         [Route("/home")]
@@ -33,6 +35,14 @@ namespace VegeFood.Controllers
         [Route("/contact")]
         public IActionResult Contact()
         {
+            return View();
+        }
+
+        [Route("/admin/home")]
+        public IActionResult IndexAdmin()
+        {
+            ViewBag.ProductList = productService.GetListProducts();
+            ViewBag.UserList = userService.GetListUsers();
             return View();
         }
 

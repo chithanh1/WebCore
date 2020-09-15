@@ -21,14 +21,14 @@ namespace VegeFood.Controllers
             loginService = new LoginService(configuration);
         }
 
+        [AllowAnonymous]
         [Route("/login")]
         [HttpGet]
-        [AllowAnonymous]
         public async Task<IActionResult> Index(string returnUrl)
         {
             LoginUserInfo loginUser = new LoginUserInfo()
             {
-                ReturnUrl = returnUrl,
+                ReturnUrl = "https://localhost:44300/signin-google",
                 ExternalLogin = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList()
             };
             return View(loginUser);
@@ -52,17 +52,16 @@ namespace VegeFood.Controllers
             return RedirectToAction("Index", "Login");
         }
 
-        public IActionResult LoginWithGoogle()
+        [AllowAnonymous]
+        [HttpPost]
+        public IActionResult ExternalLogin(string provider, string returnUrl)
         {
-            return View();
+            var redirectUrl = Url.Action("ExternalLoginCallback", "Login", new { ReturnUrl = returnUrl });
+            var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
+            return new ChallengeResult(provider, properties);
         }
 
-        public IActionResult LoginWithFacebook()
-        {
-            return View();
-        }
-
-        public IActionResult ExternalLogin()
+        public IActionResult ExternalLoginCallback()
         {
             return View();
         }

@@ -59,31 +59,22 @@
                                 </label>
                             </div>
                         </div>
-                        <!-- /.col -->
                         <div class="col-4">
                             <button type="submit" id="login-button" class="btn btn-primary btn-block">Sign In</button>
                         </div>
-                        <!-- /.col -->
                     </div>
                 }
+
                 <div class="social-auth-links text-center mb-3">
                     @if (Model.ExternalLogin.Count > 0)
                     {
                         <form method="post" asp-action="ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl">
                             @foreach (var provider in Model.ExternalLogin)
                             {
-                                if (provider.Name == "Google")
-                                {
-                                    <button type="submit" class="btn btn-block btn-danger">
-                                        Sign in using Google+
-                                    </button>
-                                }
-                                if (provider.Name == "facebook")
-                                {
-                                    <button type="submit" class="btn btn-block btn-primary">
-                                        Sign in using Facebook
-                                    </button>
-                                }
+                                <button type="submit" class="btn btn-block btn-danger"
+                                        name="provider" value="@provider.Name" title="Sign in using @provider.Name">
+                                    Sign in using @provider.DisplayName
+                                </button>
                             }
                         </form>
                     }
