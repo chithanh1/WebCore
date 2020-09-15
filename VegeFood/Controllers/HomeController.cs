@@ -20,6 +20,7 @@ namespace VegeFood.Controllers
         }
 
         [Route("/home")]
+        [HttpGet]
         public IActionResult Index()
         {
             List<Product> productList = productService.GetListProducts();
@@ -39,6 +40,7 @@ namespace VegeFood.Controllers
         }
 
         [Route("/admin/home")]
+        [HttpGet]
         public IActionResult IndexAdmin()
         {
             ViewBag.ProductList = productService.GetListProducts();

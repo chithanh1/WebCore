@@ -38,5 +38,25 @@ namespace VegeFood.Controllers
             ViewBag.ProductList = productList;
             return View(product);
         }
+
+        [Route("/admin/product")]
+        [HttpGet]
+        public IActionResult IndexAdmin()
+        {
+            List<Product> productList = productService.GetListProducts();
+            if (productList.Count == 0) return BadRequest();
+            return View(productList);
+        }
+
+        [Route("/admin/detail/{productId}")]
+        [HttpGet]
+        public IActionResult DetailAdmin(int productId)
+        {
+            Product product = productService.GetProductById(productId);
+            if (product == null) return BadRequest();
+            List<Product> productList = productService.GetListProducts();
+            ViewBag.ProductList = productList;
+            return View(product);
+        }
     }
 }
