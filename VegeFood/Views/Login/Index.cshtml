@@ -1,6 +1,6 @@
 ﻿@using VegeFood.Models.SQLModel
-@model LoginUserInfo 
-@{ 
+@model LoginUserInfo
+@{
     Layout = null;
 }
 
@@ -66,18 +66,28 @@
                         <!-- /.col -->
                     </div>
                 }
-
                 <div class="social-auth-links text-center mb-3">
-                    <p>- OR -</p>
-                    <a href="#" class="btn btn-block btn-primary">
-                        <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-                    </a>
-                    <a href="#" class="btn btn-block btn-danger">
-                        <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-                    </a>
+                    @if (Model.ExternalLogin.Count > 0)
+                    {
+                        <form method="post" asp-action="ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl">
+                            @foreach (var provider in Model.ExternalLogin)
+                            {
+                                if (provider.Name == "Google")
+                                {
+                                    <button type="submit" class="btn btn-block btn-danger">
+                                        Sign in using Google+
+                                    </button>
+                                }
+                                if (provider.Name == "facebook")
+                                {
+                                    <button type="submit" class="btn btn-block btn-primary">
+                                        Sign in using Facebook
+                                    </button>
+                                }
+                            }
+                        </form>
+                    }
                 </div>
-                <!-- /.social-auth-links -->
-
                 <p class="mb-1">
                     <a href="forgot-password.html">I forgot my password</a>
                 </p>
@@ -85,15 +95,11 @@
                     <a href="register.html" class="text-center">Register a new membership</a>
                 </p>
             </div>
-            <!-- /.login-card-body -->
         </div>
     </div>
-    <!-- /.login-box -->
-    <!-- jQuery -->
+
     <script src="~/js/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
     <script src="~/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
     <script src="~/admin/js/adminlte.min.js"></script>
 </body>
 </html>

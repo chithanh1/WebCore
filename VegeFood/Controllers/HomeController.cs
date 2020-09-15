@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using VegeFood.Models;
@@ -10,15 +8,12 @@ using VegeFood.Services.SQLService;
 
 namespace VegeFood.Controllers
 {
-    [AllowAnonymous]
     public class HomeController : Controller
     {
         private ProductService productService;
-        private readonly SignInManager<IdentityUser> _signInManager;
 
-        public HomeController(SignInManager<IdentityUser> signInManager, IConfiguration configuration)
+        public HomeController(IConfiguration configuration)
         {
-            _signInManager = signInManager;
             productService = new ProductService(configuration);
         }
 

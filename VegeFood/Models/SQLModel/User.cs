@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Authentication;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using VegeFood.Support;
@@ -190,5 +192,9 @@ namespace VegeFood.Models.SQLModel
         public string Password { get; set; }
 
         public bool RemmemberMe { get; set; }
+
+        public string ReturnUrl { get; set; }
+
+        public IList<AuthenticationScheme> ExternalLogin { get; set; }
     }
 }
