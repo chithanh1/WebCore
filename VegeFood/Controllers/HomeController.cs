@@ -45,6 +45,8 @@ namespace VegeFood.Controllers
         {
             ViewBag.ProductList = productService.GetListProducts();
             ViewBag.UserList = userService.GetListUsers();
+            ViewBag.Route = "/admin/home";
+            ViewBag.RouteName = "Home";
             return View();
         }
 

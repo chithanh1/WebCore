@@ -45,6 +45,8 @@ namespace VegeFood.Controllers
         {
             List<Product> productList = productService.GetListProducts();
             if (productList.Count == 0) return BadRequest();
+            ViewBag.Route = "/admin/product";
+            ViewBag.NameRoute = "Products List";
             return View(productList);
         }
 
