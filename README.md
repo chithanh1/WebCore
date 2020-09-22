@@ -7,7 +7,7 @@
 ### Một số lưu ý khi chạy chương trình
 - chắc chắn máy tính đã cài make
 - Enable secret storage chạy lệnh: make initsecret
-- thêm google credentical vào secret store: make googlesecret(lưu ý thay client-id và client-recret bằng cient-id và client-secret của mình)
+- thêm google credentical vào secret store: make googlesecret clientId="Your Client Id" clientSecret="Your Client Secret"
 ###### thông tin chi tiết tại [đây](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/google-logins?view=aspnetcore-3.1)
 
 ### tài liệu tham khảo
