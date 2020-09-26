@@ -168,8 +168,6 @@
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-                             with font-awesome or any other icon font library -->
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
@@ -206,6 +204,7 @@
                                 <p>
                                     Product
                                     <i class="right fas fa-angle-left"></i>
+                                    <span class="badge badge-info right">2</span>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
@@ -219,6 +218,24 @@
                                     <a href="pages/charts/flot.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Popular Products</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Utilities
+                                    <i class="right fas fa-angle-left"></i>
+                                    <span class="badge badge-info right">1</span>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a asp-controller="Utilities" asp-action="Calendar" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Calendar</p>
                                     </a>
                                 </li>
                             </ul>

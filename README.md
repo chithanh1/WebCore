@@ -1,4 +1,4 @@
-### Một trang web đơn giản
+### Xây dựng một trang web đơn giản
 #### công nghệ sử dụng: ASP.NET Core
 #### trình biên dịch: Visual studio 2019
 

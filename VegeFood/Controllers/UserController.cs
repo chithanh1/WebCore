@@ -15,20 +15,17 @@ namespace VegeFood.Controllers
             userService = new UserService(configuration);
         }
 
-        [Route("/users")]
+        [Route("/admin/users")]
         [HttpGet]
         public IActionResult IndexAdmin()
         {
             List<User> userList = userService.GetListUsers();
+            ViewBag.Route = "/admin/users";
+            ViewBag.NameRoute = "User List";
             return View(userList);
         }
 
-        public IActionResult AdminUser()
-        {
-            return View();
-        }
-
-        [Route("/user/detail/{userId}")]
+        [Route("/admin/users/{userId}")]
         public IActionResult DetailAdmin(int userId)
         {
             User user = userService.GetUserById(userId);
