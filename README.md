@@ -16,3 +16,4 @@
 - https://www.yogihosting.com/aspnet-core-identity-login-with-google/#communicate
 - https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/google-logins?view=aspnetcore-3.1
 - xem trang admin template tại [đây](https://github.com/ColorlibHQ/AdminLTE)
+- download template trang chủ tại [đây](https://colorlib.com/wp/template/vegefoods/)
