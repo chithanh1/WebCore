@@ -27,7 +27,7 @@ namespace VegeFood.Controllers
             return View(blogList);
         }
 
-        [Route("/blog/detail/{blogId}")]
+        [Route("/blog/{blogId}")]
         [HttpGet]
         public IActionResult Detail(int blogId)
         {
