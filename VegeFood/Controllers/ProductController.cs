@@ -50,14 +50,24 @@ namespace VegeFood.Controllers
             return View(productList);
         }
 
-        [Route("/admin/detail/{productId}")]
+        [Route("/admin/product/detail/{productId}")]
         [HttpGet]
         public IActionResult DetailAdmin(int productId)
         {
             Product product = productService.GetProductById(productId);
             if (product == null) return BadRequest();
-            List<Product> productList = productService.GetListProducts();
-            ViewBag.ProductList = productList;
+            ViewBag.Route = $"/admin/product/detail/{productId}";
+            ViewBag.NameRoute = "Products List";
+            return View(product);
+        }
+
+        [Route("/admin/product/edit/{produtId}")]
+        public IActionResult EditAdmin(int productId)
+        {
+            Product product = productService.GetProductById(productId);
+            if (product == null) return BadRequest();
+            ViewBag.Route = $"/admin/product/edit/{productId}";
+            ViewBag.NameRoute = "Edit Product";
             return View(product);
         }
     }
