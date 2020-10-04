@@ -16,19 +16,19 @@ namespace VegeFood.Controllers
         }
 
         [Route("/login")]
-        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
         [Route("/admin/login")]
-        [HttpGet]
         public IActionResult AdminLogin()
         {
             return View();
         }
 
+        [HttpPost]
+        [Route("/login/handle")]
         public IActionResult LoginWithUsernameAndPassword(LoginUserInfo loginUser)
         {
             if (ModelState.IsValid)

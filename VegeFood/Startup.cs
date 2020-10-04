@@ -26,6 +26,8 @@ namespace VegeFood
             services.AddDbContext<SQLData>();
             services.AddScoped<SQLData>();
 
+            services.AddMvc();
+
             services.AddRazorPages();
 
             services.Configure<JWTConfig>(Configuration.GetSection("JWT"));
