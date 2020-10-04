@@ -5,18 +5,19 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using VegeFood.Models.SQLModel;
 
 namespace VegeFood
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
-
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -25,22 +26,7 @@ namespace VegeFood
             services.AddDbContext<SQLData>();
             services.AddScoped<SQLData>();
 
-            services.AddDefaultIdentity<IdentityUser>(options =>
-        options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<SQLData>();
-
             services.AddRazorPages();
-
-            //services.AddControllersWithViews();
-
-            services.AddAuthentication().AddGoogle(options =>
-            {
-                IConfigurationSection googleAuthNSection =
-                    Configuration.GetSection("Authentication:Google");
-                options.ClientId = googleAuthNSection["ClientId"];
-                options.ClientSecret = googleAuthNSection["ClientSecret"];
-                options.SignInScheme = IdentityConstants.ExternalScheme;
-            });
 
             services.Configure<JWTConfig>(Configuration.GetSection("JWT"));
         }
@@ -69,12 +55,6 @@ namespace VegeFood
             {
                 endpoints.MapControllers();
             });
-
-            //app.Run(async context =>
-            //{
-            //    context.Response.StatusCode = StatusCodes.Status404NotFound;
-            //    await context.Response.WriteAsync("Page not found");
-            //});
         }
     }
 }
