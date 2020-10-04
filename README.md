@@ -8,9 +8,10 @@
 - chắc chắn máy tính đã cài make
 
 ### Một số lệnh để chạy chương trình
-###### cd /WebCore
+#### lưu ý: chuyển đến thư mục WebCore: cd /WebCore
 - Enable secret storage chạy lệnh: make initsecret
-- thêm google credentical vào secret store: make googlesecret clientId="Your Client Id" clientSecret="Your Client Secret"
+- thêm google clientId vào secret store: make googlesecret clientId="Your Client Id"
+- thêm google clientSecret vào secret store: make googlesecret clientSecret="Your Client Secret"
 ###### thông tin chi tiết tại [đây](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/google-logins?view=aspnetcore-3.1)
 
 ### tài liệu tham khảo

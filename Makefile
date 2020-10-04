@@ -8,8 +8,13 @@ install:
 initsecret:
 	dotnet user-secrets init --project ./VegeFood
 
-googlesecret clientId = "-client-id" clientSecret = "-client-secret-":
+listsecret:
+	dotnet user-secrets list --project ./VegeFood
+
+googleclientid clientId = "-client-id-":
 	dotnet user-secrets set "Authentication:Google:ClientId" $(clientId) --project ./VegeFood
+
+googlesecret clientSecret "-client-secret-":
 	dotnet user-secrets set "Authentication:Google:ClientSecret" $(clientSecret) --project ./VegeFood
 
 run:

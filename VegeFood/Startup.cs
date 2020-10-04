@@ -1,11 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using VegeFood.Models.SQLModel;
 
 namespace VegeFood
@@ -64,6 +62,11 @@ namespace VegeFood
             app.UseRouting();
 
             app.UseAuthorization();
+
+            //add middleware
+            //string secretKey = Configuration.GetSection("JWT").GetValue<string>("SecretKey");
+            //string mainUrl = Configuration.GetValue<string>("Develop:ApplicationUrl");
+            //app.UseMiddleware<AuthorizedMiddleware>(secretKey, mainUrl);
 
             app.UseEndpoints(endpoints =>
             {
