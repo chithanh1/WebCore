@@ -63,6 +63,21 @@
                         </div>
                     </div>
                 </form>
+                <div class="social-auth-links text-center mb-3">
+                    @if (Model.ExternalLogin.Count > 0)
+                    {
+                        <form action="/login/external-handle" method="post">
+                            @foreach (var provider in Model.ExternalLogin)
+                            {
+                                <button type="submit" class="btn btn-block btn-danger"
+                                        name="provider" value="@provider.Name" title="Sign in using @provider.Name">
+                                    Sign in using @provider.DisplayName
+                                </button>
+                            }
+                        </form>
+                    }
+                </div>
+
                 <p class="mb-1">
                     <a href="forgot-password.html">I forgot my password</a>
                 </p>

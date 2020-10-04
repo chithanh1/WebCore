@@ -192,5 +192,9 @@ namespace VegeFood.Models.SQLModel
         public string Password { get; set; }
 
         public bool RemmemberMe { get; set; }
+
+        public string ReturnUrl { get; set; }
+
+        public IList<AuthenticationScheme> ExternalLogin { get; set; }
     }
 }

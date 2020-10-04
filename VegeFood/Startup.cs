@@ -26,9 +26,21 @@ namespace VegeFood
             services.AddDbContext<SQLData>();
             services.AddScoped<SQLData>();
 
-            services.AddMvc();
+            services.AddDefaultIdentity<IdentityUser>(options =>
+        options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<SQLData>();
 
+            services.AddMvc();
             services.AddRazorPages();
+
+            services.AddAuthentication().AddGoogle(options =>
+            {
+                IConfigurationSection googleAuthNSection =
+                    Configuration.GetSection("Authentication:Google");
+                options.ClientId = googleAuthNSection["ClientId"];
+                options.ClientSecret = googleAuthNSection["ClientSecret"];
+                options.SignInScheme = IdentityConstants.ExternalScheme;
+            });
 
             services.Configure<JWTConfig>(Configuration.GetSection("JWT"));
         }
