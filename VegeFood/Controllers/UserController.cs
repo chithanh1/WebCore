@@ -60,7 +60,7 @@ namespace VegeFood.Controllers
         public async Task<IActionResult> EditAdmin(User updateUser)
         {
             Result result = await userService.UpdateUserAsync(updateUser);
-            if (result.status) return RedirectToAction("EditAdmin", "User");
+            if (result.status) return Redirect($"/admin/users/edit/{updateUser.Id}");
             else return BadRequest();
         }
     }

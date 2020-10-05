@@ -1,5 +1,108 @@
-﻿@{ 
+﻿@using VegeFood.Models.SQLModel
+@model User
+@{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+@section Script{
+    <script>
+        function Submit() {
 
+        }
+    </script>
+}
+
+<form action="/admin/users/edit/handle" method="post" class="form-horizontal">
+    @Html.AntiForgeryToken()
+    @Html.TextBoxFor(model => model.Id, new {style = "visibility: hidden" })
+    <div class="card-body">
+        <div class="form-group row">
+            @Html.Label("inputEmail3", "Name", new { @class = "col-sm-2 col-form-label" })
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.Name, new { id = "inputEmail3", @class = "form-control", placeholder = "Name" })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.Label("inputEmail3", "Age", new { @class = "col-sm-2 col-form-label" })
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.Age, new { id = "inputEmail3", @class = "form-control", placeholder = "Age" })
+                @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.Label("inputEmail3", "Username", new { @class = "col-sm-2 col-form-label" })
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.Username, new { id = "inputEmail3", @class = "form-control", placeholder = "Username" })
+                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.Label("inputEmail3", "Password", new { @class = "col-sm-2 col-form-label" })
+            <div class="col-sm-10">
+                @Html.PasswordFor(model => model.Password, new { id = "inputEmail3", @class = "form-control", placeholder = "New Password" })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Confirm Password</label>
+            <div class="col-sm-10">
+                <input type="password" id="inputEmail13" class="form-control" placeholder="Confirm Password" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.Label("inputEmail3", "Birthday", new { @class = "col-sm-2 col-form-label" })
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.Birthday, "{0:dd/MM/yyyy}", new { id = "inputEmail3", @class = "form-control", placeholder = "Birthday" })
+                @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.Label("inputEmail3", "Phone", new { @class = "col-sm-2 col-form-label" })
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.Phone, new { id = "inputEmail3", @class = "form-control", placeholder = "Phone" })
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.Label("inputEmail3", "Email", new { @class = "col-sm-2 col-form-label" })
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.Email, new { id = "inputEmail3", @class = "form-control", placeholder = "Email" })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.Label("inputEmail3", "Address", new { @class = "col-sm-2 col-form-label" })
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.Address, new { id = "inputEmail3", @class = "form-control", placeholder = "Address" })
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <label class="col-sm-2 col-form-label">Male</label>
+                <div class="col-sm-4">
+                    @Html.RadioButtonFor(model => model.Sex, "Male")
+                </div>
+                <label class="col-sm-2 col-form-label">Female</label>
+                <div class="col-sm-6">
+                    @Html.RadioButtonFor(model => model.Sex, "Female")
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Edit" class="btn btn-default" onclick="Submit()" />
+        </div>
+    </div>
+</form>
