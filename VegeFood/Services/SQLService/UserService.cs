@@ -100,7 +100,7 @@ namespace VegeFood.Services.SQLService
             return user;
         }
 
-        public async Task<User> GetUSerByIdAsync(int userId)
+        public async Task<User> GetUserByIdAsync(int userId)
         {
             User user = await SqlData.Users.FindAsync(userId);
             return user;
@@ -118,7 +118,7 @@ namespace VegeFood.Services.SQLService
             return userList;
         }
 
-        public Result UpdateUser(UpdateUserInfo updateUser)
+        public Result UpdateUser(User updateUser)
         {
             User user = SqlData.Users.Find(updateUser.Id);
             if (user == null) return new Result
@@ -159,7 +159,7 @@ namespace VegeFood.Services.SQLService
             };
         }
 
-        public async Task<Result> UpdateUserAsync(UpdateUserInfo updateUser)
+        public async Task<Result> UpdateUserAsync(User updateUser)
         {
             User user = await SqlData.Users.FindAsync(updateUser.Id);
             if (user == null) return new Result

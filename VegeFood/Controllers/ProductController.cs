@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using VegeFood.Models.SQLModel;
 using VegeFood.Services.SQLService;
 
@@ -19,10 +20,10 @@ namespace VegeFood.Controllers
 
         [Route("/shop")]
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List<Product> productList = productService.GetListProducts();
-            List<Category> categorieList = categoryService.GetListCategories();
+            List<Product> productList = await productService.GetListProductsAsync();
+            List<Category> categorieList = await categoryService.GetListCategoriesAsync();
             ViewBag.CategoryList = categorieList;
             if (productList.Count == 0) return BadRequest();
             return View(productList);
@@ -30,20 +31,20 @@ namespace VegeFood.Controllers
 
         [Route("/shop/detail/{productId}")]
         [HttpGet]
-        public IActionResult Detail(int productId)
+        public async Task<IActionResult> Detail(int productId)
         {
-            Product product = productService.GetProductById(productId);
+            Product product = await productService.GetProductByIdAsync(productId);
             if (product == null) return BadRequest();
-            List<Product> productList = productService.GetListProducts();
+            List<Product> productList = await productService.GetListProductsAsync();
             ViewBag.ProductList = productList;
             return View(product);
         }
 
         [Route("/admin/product")]
         [HttpGet]
-        public IActionResult IndexAdmin()
+        public async Task<IActionResult> IndexAdmin()
         {
-            List<Product> productList = productService.GetListProducts();
+            List<Product> productList = await productService.GetListProductsAsync();
             if (productList.Count == 0) return BadRequest();
             ViewBag.Route = "/admin/product";
             ViewBag.NameRoute = "Products List";
@@ -52,9 +53,9 @@ namespace VegeFood.Controllers
 
         [Route("/admin/product/detail/{productId}")]
         [HttpGet]
-        public IActionResult DetailAdmin(int productId)
+        public async Task<IActionResult> DetailAdmin(int productId)
         {
-            Product product = productService.GetProductById(productId);
+            Product product = await productService.GetProductByIdAsync(productId);
             if (product == null) return BadRequest();
             ViewBag.Route = $"/admin/product/detail/{productId}";
             ViewBag.NameRoute = "Products List";
@@ -62,9 +63,9 @@ namespace VegeFood.Controllers
         }
 
         [Route("/admin/product/edit/{produtId}")]
-        public IActionResult EditAdmin(int productId)
+        public async Task<IActionResult> EditAdmin(int productId)
         {
-            Product product = productService.GetProductById(productId);
+            Product product = await productService.GetProductByIdAsync(productId);
             if (product == null) return BadRequest();
             ViewBag.Route = $"/admin/product/edit/{productId}";
             ViewBag.NameRoute = "Edit Product";

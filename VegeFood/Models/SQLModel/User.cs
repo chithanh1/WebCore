@@ -124,48 +124,6 @@ namespace VegeFood.Models.SQLModel
         public string Node { get; set; }
     }
 
-    public class UpdateUserInfo
-    {
-        [Required]
-        public int Id { get; set; }
-
-        [StringLength(100)]
-        public string Name { get; set; }
-
-        [Range(17, 90, ErrorMessage = "Age between 17 and 90")]
-        public int Age { get; set; }
-
-        [StringLength(100)]
-        public string Username { get; set; }
-
-        [StringLength(200)]
-        [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$", ErrorMessage = "Minimum eight characters, at least one letter and one number")]
-        public string Password { get; set; }
-
-        [StringLength(200)]
-        public string Image { get; set; }
-
-        [DisplayFormat(DataFormatString = "{0:d}")]
-        public DateTime? Birthday { get; set; }
-
-        [StringLength(10)]
-        public string Sex { get; set; }
-
-        [StringLength(50)]
-        [Phone]
-        public string Phone { get; set; }
-
-        [StringLength(50)]
-        public string Address { get; set; }
-
-        [StringLength(100)]
-        [EmailAddress]
-        public string Email { get; set; }
-
-        [StringLength(100)]
-        public string Node { get; set; }
-    }
-
     public class UpdateAdminUser
     {
         public int Id { get; set; }

@@ -42,11 +42,11 @@ namespace VegeFood.Controllers
 
         [HttpPost]
         [Route("/login/handle")]
-        public IActionResult LoginWithUsernameAndPassword(LoginUserInfo loginUser)
+        public async Task<IActionResult> LoginWithUsernameAndPassword(LoginUserInfo loginUser)
         {
             if (ModelState.IsValid)
             {
-                Result result = loginService.LoginWithUsernameAndPassword(loginUser);
+                Result result = await loginService.LoginWithUsernameAndPasswordAsync(loginUser);
                 if (!result.status) ModelState.AddModelError("", result.data.ToString());
                 else return RedirectToAction("Index", "Home");
             }

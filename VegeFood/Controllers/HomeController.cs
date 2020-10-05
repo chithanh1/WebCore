@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using VegeFood.Models;
@@ -21,30 +22,30 @@ namespace VegeFood.Controllers
 
         [Route("/home")]
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List<Product> productList = productService.GetListProducts();
+            List<Product> productList = await productService.GetListProductsAsync();
             return View(productList);
         }
 
         [Route("/about")]
-        public IActionResult About()
+        public async Task<IActionResult> About()
         {
             return View();
         }
 
         [Route("/contact")]
-        public IActionResult Contact()
+        public async Task<IActionResult> Contact()
         {
             return View();
         }
 
         [Route("/admin/home")]
         [HttpGet]
-        public IActionResult IndexAdmin()
+        public async Task<IActionResult> IndexAdmin()
         {
-            ViewBag.ProductList = productService.GetListProducts();
-            ViewBag.UserList = userService.GetListUsers();
+            ViewBag.ProductList = await productService.GetListProductsAsync();
+            ViewBag.UserList = await userService.GetListUsersAsync();
             ViewBag.Route = "/admin/home";
             ViewBag.RouteName = "Home";
             return View();
