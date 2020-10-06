@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
-using VegeFood.Models.SQLModel;
-using VegeFood.Services.SQLService;
+using System.Threading.Tasks;
+using VegeFood.Models.SQLModels;
+using VegeFood.Services.SQLServices;
 
 namespace VegeFood.Controllers
 {
@@ -19,9 +20,9 @@ namespace VegeFood.Controllers
 
         [Route("/blog")]
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List<Blog> blogList = blogService.GetListBlogs();
+            List<Blog> blogList = await blogService.GetListBlogsAsync();
             if (blogList.Count == 0) return BadRequest();
             ViewBag.CategoryList = categoryService.GetListCategories();
             return View(blogList);
@@ -29,9 +30,9 @@ namespace VegeFood.Controllers
 
         [Route("/blog/{blogId}")]
         [HttpGet]
-        public IActionResult Detail(int blogId)
+        public async Task<IActionResult> Detail(int blogId)
         {
-            Blog blog = blogService.GetBlogById(blogId);
+            Blog blog = await blogService.GetBlogByIdAsync(blogId);
             ViewBag.BlogList = blogService.GetListBlogs();
             ViewBag.CategoryList = categoryService.GetListCategories();
             if (blog == null) return BadRequest();

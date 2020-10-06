@@ -1,8 +1,8 @@
 ﻿using System.Security.Claims;
 using System.Collections.Generic;
-using VegeFood.Models.JWTModel;
+using VegeFood.Models.JWTModels;
 
-namespace VegeFood.Services.JWT
+namespace VegeFood.Services.JWTServices
 {
     public interface IAuthService
     {

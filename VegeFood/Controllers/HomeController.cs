@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using VegeFood.Models;
-using VegeFood.Models.SQLModel;
-using VegeFood.Services.SQLService;
+using VegeFood.Models.SQLModels;
+using VegeFood.Services.SQLServices;
 
 namespace VegeFood.Controllers
 {
@@ -50,6 +50,20 @@ namespace VegeFood.Controllers
             ViewBag.RouteName = "Home";
             return View();
         }
+
+        [Route("/confirm-password")]
+        [HttpGet]
+        public async Task<IActionResult> ConfirmPassword()
+        {
+            return View();
+        }
+
+        //[Route("/confirm-password/handle")]
+        //[HttpPost]
+        //public async Task<IActionResult> ConfirmPassword()
+        //{
+
+        //}
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

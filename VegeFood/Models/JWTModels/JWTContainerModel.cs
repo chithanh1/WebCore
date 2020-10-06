@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
-namespace VegeFood.Models.JWTModel
+namespace VegeFood.Models.JWTModels
 {
     public class JWTContainerModel: IAuthContainerModel
     {

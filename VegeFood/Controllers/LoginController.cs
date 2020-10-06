@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using VegeFood.Models;
-using VegeFood.Models.SQLModel;
+using VegeFood.Models.SQLModels;
 using VegeFood.Services;
 
 namespace VegeFood.Controllers

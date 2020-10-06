@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System.Threading.Tasks;
 using VegeFood.Models;
-using VegeFood.Models.SQLModel;
-using VegeFood.Services.SQLService;
+using VegeFood.Models.SQLModels;
+using VegeFood.Services.SQLServices;
 
 namespace VegeFood.Services
 {

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace VegeFood.Controllers
 {
@@ -6,7 +7,7 @@ namespace VegeFood.Controllers
     {
         [Route("/utilities/calendar")]
         [HttpGet]
-        public IActionResult Calendar()
+        public async Task<IActionResult> Calendar()
         {
             return View();
         }

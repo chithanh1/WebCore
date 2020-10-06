@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace VegeFood.Models.SQLModel
+namespace VegeFood.Models.SQLModels
 {
     [Table("Category")]
     public class Category

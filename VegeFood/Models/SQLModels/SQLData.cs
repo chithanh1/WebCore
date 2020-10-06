@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace VegeFood.Models.SQLModel
+namespace VegeFood.Models.SQLModels
 {
     public class SQLData: DbContext
     {

@@ -2,8 +2,8 @@
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using VegeFood.Models.SQLModel;
-using VegeFood.Services.SQLService;
+using VegeFood.Models.SQLModels;
+using VegeFood.Services.SQLServices;
 
 namespace VegeFood.Controllers
 {

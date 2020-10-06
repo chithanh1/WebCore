@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace VegeFood.Models.JWTModel
+namespace VegeFood.Models.JWTModels
 {
     public interface IAuthContainerModel
     {

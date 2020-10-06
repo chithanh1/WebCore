@@ -3,9 +3,9 @@ using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using VegeFood.Models.SQLModel;
+using VegeFood.Models.SQLModels;
 
-namespace VegeFood.Services.SQLService
+namespace VegeFood.Services.SQLServices
 {
     public class BlogService: SQLBaseService
     {

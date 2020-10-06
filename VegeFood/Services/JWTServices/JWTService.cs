@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
-using VegeFood.Models.JWTModel;
+using VegeFood.Models.JWTModels;
 using Microsoft.Extensions.Options;
 
-namespace VegeFood.Services.JWT
+namespace VegeFood.Services.JWTServices
 {
     public class JWTService: IAuthService
     {

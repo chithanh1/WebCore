@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using VegeFood.Support;
 
-namespace VegeFood.Models.SQLModel
+namespace VegeFood.Models.SQLModels
 {
     [Table("Users")]
     public class User

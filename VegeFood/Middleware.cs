@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using VegeFood.Services.JWT;
+using VegeFood.Services.JWTServices;
 
 namespace VegeFood
 {

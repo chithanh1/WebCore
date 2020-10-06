@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using VegeFood.Models.SQLModel;
+using VegeFood.Models.SQLModels;
 
 namespace VegeFood
 {
