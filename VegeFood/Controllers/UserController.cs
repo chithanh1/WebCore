@@ -32,7 +32,7 @@ namespace VegeFood.Controllers
         public async Task<IActionResult> DetailAdmin(int userId)
         {
             User user = await userService.GetUserByIdAsync(userId);
-            if (user == null) return BadRequest();
+            if (user == null) return Redirect("/error");
             else
             {
                 ViewBag.Route = $"/admin/users/{userId}";
@@ -46,7 +46,7 @@ namespace VegeFood.Controllers
         public async Task<IActionResult> EditAdmin(int userId)
         {
             User user = await userService.GetUserByIdAsync(userId);
-            if (user == null) return BadRequest();
+            if (user == null) return Redirect("/error");
             else
             {
                 ViewBag.Route = $"/admin/users/edit/{userId}";
@@ -61,7 +61,7 @@ namespace VegeFood.Controllers
         {
             Result result = await userService.UpdateUserAsync(updateUser);
             if (result.status) return Redirect($"/admin/users/edit/{updateUser.Id}");
-            else return BadRequest();
+            else return Redirect("/error");
         }
     }
 }

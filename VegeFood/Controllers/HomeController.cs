@@ -51,24 +51,15 @@ namespace VegeFood.Controllers
             return View();
         }
 
-        [Route("/confirm-password")]
-        [HttpGet]
-        public async Task<IActionResult> ConfirmPassword()
-        {
-            return View();
-        }
-
-        //[Route("/confirm-password/handle")]
-        //[HttpPost]
-        //public async Task<IActionResult> ConfirmPassword()
-        //{
-
-        //}
-
+        [Route("/error")]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            ErrorViewModel errorView = new ErrorViewModel
+            {
+                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+            };
+            return View(errorView);
         }
     }
 }

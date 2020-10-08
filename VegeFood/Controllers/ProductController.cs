@@ -25,7 +25,7 @@ namespace VegeFood.Controllers
             List<Product> productList = await productService.GetListProductsAsync();
             List<Category> categorieList = await categoryService.GetListCategoriesAsync();
             ViewBag.CategoryList = categorieList;
-            if (productList.Count == 0) return BadRequest();
+            if (productList.Count == 0) return Redirect("/error");
             return View(productList);
         }
 
@@ -34,7 +34,7 @@ namespace VegeFood.Controllers
         public async Task<IActionResult> Detail(int productId)
         {
             Product product = await productService.GetProductByIdAsync(productId);
-            if (product == null) return BadRequest();
+            if (product == null) return Redirect("/error");
             List<Product> productList = await productService.GetListProductsAsync();
             ViewBag.ProductList = productList;
             return View(product);
@@ -45,7 +45,7 @@ namespace VegeFood.Controllers
         public async Task<IActionResult> IndexAdmin()
         {
             List<Product> productList = await productService.GetListProductsAsync();
-            if (productList.Count == 0) return BadRequest();
+            if (productList.Count == 0) return Redirect("/error");
             ViewBag.Route = "/admin/product";
             ViewBag.NameRoute = "Products List";
             return View(productList);
@@ -56,7 +56,7 @@ namespace VegeFood.Controllers
         public async Task<IActionResult> DetailAdmin(int productId)
         {
             Product product = await productService.GetProductByIdAsync(productId);
-            if (product == null) return BadRequest();
+            if (product == null) return Redirect("/error");
             ViewBag.Route = $"/admin/product/detail/{productId}";
             ViewBag.NameRoute = "Products List";
             return View(product);
@@ -66,7 +66,7 @@ namespace VegeFood.Controllers
         public async Task<IActionResult> EditAdmin(int productId)
         {
             Product product = await productService.GetProductByIdAsync(productId);
-            if (product == null) return BadRequest();
+            if (product == null) return Redirect("/error");
             ViewBag.Route = $"/admin/product/edit/{productId}";
             ViewBag.NameRoute = "Edit Product";
             return View(product);

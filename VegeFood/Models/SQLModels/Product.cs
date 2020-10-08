@@ -55,7 +55,7 @@ namespace VegeFood.Models.SQLModels
     public class InsertProductInfo
     {
         [Required(ErrorMessage = "CategoryString is required")]
-        [IncludeArray(CheckArray = new object[] { "Vegetables", "Fruits", "Juice", "Dried" })]
+        [IncludeArray(CheckArray = new object[] { "Vegetables", "Fruits", "Juice", "Dried" }, ErrorMessage = "CategoryString is one of Vegetables, Fruits, Juice, Dried")]
         public string CategoryString { get; set; }
 
         [Required(ErrorMessage = "Name is required")]

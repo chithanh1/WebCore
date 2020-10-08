@@ -1,5 +1,5 @@
 ### Xây dựng một trang web đơn giản
-#### công nghệ sử dụng: ASP.NET Core
+#### công nghệ sử dụng: ASP.NET Core 3.1
 #### trình biên dịch: Visual studio 2019
 
 ###### để cài đặt thư viện gọi lệnh: make install
@@ -10,7 +10,7 @@
 ### Một số lệnh để chạy chương trình
 #### lưu ý: chuyển đến thư mục WebCore: cd /WebCore
 - Enable secret storage chạy lệnh: make initsecret
-- thêm google clientId vào secret store: make googlesecret clientId="Your Client Id"
+- thêm google clientId vào secret store: make googleclientid clientId="Your Client Id"
 - thêm google clientSecret vào secret store: make googlesecret clientSecret="Your Client Secret"
 ###### thông tin chi tiết tại [đây](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/google-logins?view=aspnetcore-3.1)
 

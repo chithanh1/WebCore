@@ -23,7 +23,7 @@ namespace VegeFood.Controllers
         public async Task<IActionResult> Index()
         {
             List<Blog> blogList = await blogService.GetListBlogsAsync();
-            if (blogList.Count == 0) return BadRequest();
+            if (blogList.Count == 0) return Redirect("/error");
             ViewBag.CategoryList = categoryService.GetListCategories();
             return View(blogList);
         }
@@ -35,7 +35,7 @@ namespace VegeFood.Controllers
             Blog blog = await blogService.GetBlogByIdAsync(blogId);
             ViewBag.BlogList = blogService.GetListBlogs();
             ViewBag.CategoryList = categoryService.GetListCategories();
-            if (blog == null) return BadRequest();
+            if (blog == null) return Redirect("/error");
             return View(blog);
         }
     }

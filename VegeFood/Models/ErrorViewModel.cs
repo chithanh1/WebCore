@@ -1,5 +1,3 @@
-using System;
-
 namespace VegeFood.Models
 {
     public class ErrorViewModel

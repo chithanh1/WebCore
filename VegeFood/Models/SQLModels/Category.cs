@@ -9,7 +9,7 @@ namespace VegeFood.Models.SQLModels
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Type is required")]
+        [Required(ErrorMessage = "Name is required")]
         [StringLength(50)]
         public string Name { get; set; }
 
