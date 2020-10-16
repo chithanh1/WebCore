@@ -17,6 +17,8 @@
 ### tài liệu tham khảo
 - https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/attributes
 - https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/google-logins?view=aspnetcore-3.1
+- https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/external-authentication-services
+- https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api
 - https://www.yogihosting.com/aspnet-core-identity-login-with-google/#communicate
 - https://www.tektutorialshub.com/asp-net-core/asp-net-core-model-binding/
 - xem trang admin template tại [đây](https://github.com/ColorlibHQ/AdminLTE)
