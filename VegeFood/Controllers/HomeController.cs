@@ -53,13 +53,15 @@ namespace VegeFood.Controllers
 
         [Route("/error")]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult Error(ErrorViewModel errorViewModel)
         {
+            //ViewData["Url"] = Url;
+            //ViewData["Message"] = Message;
             ErrorViewModel errorView = new ErrorViewModel
             {
                 RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
             };
-            return View(errorView);
+            return View(errorViewModel);
         }
     }
 }

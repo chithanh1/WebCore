@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using VegeFood.Models;
 using VegeFood.Models.SQLModels;
@@ -46,7 +47,15 @@ namespace VegeFood.Controllers
         public async Task<IActionResult> EditAdmin(int userId)
         {
             User user = await userService.GetUserByIdAsync(userId);
-            if (user == null) return Redirect("/error");
+            if (user == null)
+            {
+                return RedirectToAction("Error", "Home", new ErrorViewModel
+                {
+                    Url = $"/admin/users/edit/{userId}",
+                    Message = "User not found",
+                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+                });
+            }
             else
             {
                 ViewBag.Route = $"/admin/users/edit/{userId}";

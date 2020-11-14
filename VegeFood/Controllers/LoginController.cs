@@ -28,7 +28,7 @@ namespace VegeFood.Controllers
         {
             LoginUserInfo loginUser = new LoginUserInfo()
             {
-                ReturnUrl = "https://localhost:44300/home",
+                ReturnUrl = "https://127.0.0.1:44300/signin-google/",
                 ExternalLogin = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList()
             };
             return View(loginUser);
@@ -63,13 +63,56 @@ namespace VegeFood.Controllers
             return new ChallengeResult(provider, properties);
         }
 
-        public IActionResult ExternalLoginCallback()
+        [AllowAnonymous]
+        public async Task<IActionResult> ExternalLoginCallback(string returnUrl = null, string remoteError = null)
+        {
+            returnUrl = returnUrl ?? Url.Content("~/");
+            LoginUserInfo loginUserInfo = new LoginUserInfo()
+            {
+                ReturnUrl = returnUrl,
+                ExternalLogin = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList()
+            };
+            if(remoteError != null)
+            {
+                ModelState.AddModelError(string.Empty, $"error from external provider: {remoteError}");
+                return View("Login", loginUserInfo);
+            }
+            ExternalLoginInfo info = await _signInManager.GetExternalLoginInfoAsync();
+            if(info == null)
+            {
+                ModelState.AddModelError(string.Empty, $"error from external provider: {remoteError}");
+                return View("Login", loginUserInfo);
+            }
+            var signInResult = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
+            if (signInResult.Succeeded) return LocalRedirect(returnUrl);
+            //else
+            //{
+            //    var email = info.Principal.FindFirstValue(ClaimTypes.Email);
+            //    if(email != null)
+            //    {
+
+            //    }
+            //}
+            return View("Login", loginUserInfo);
+        }
+
+        [HttpGet]
+        [Route("/register")]
+        public IActionResult Register()
         {
             return View();
         }
 
         [HttpPost]
+        [Route("/register/handle")]
         public IActionResult Register(InsertUserInfo insertUser)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Route("/forgot-password/handle")]
+        public IActionResult ForgotPassword()
         {
             return View();
         }
