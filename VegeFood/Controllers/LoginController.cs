@@ -28,7 +28,7 @@ namespace VegeFood.Controllers
         {
             LoginUserInfo loginUser = new LoginUserInfo()
             {
-                ReturnUrl = "https://localhost:44300/home",
+                ReturnUrl = "https://127.0.0.1:44300/signin-google/",
                 ExternalLogin = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList()
             };
             return View(loginUser);

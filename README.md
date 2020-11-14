@@ -1,14 +1,26 @@
+---
+
 ### Xây dựng một trang web đơn giản
 #### công nghệ sử dụng: ASP.NET Core 3.1
 #### trình biên dịch: Visual studio 2019
 
-###### để cài đặt thư viện gọi lệnh: make install
-
 ### Một số lưu ý khi chạy chương trình
 - chắc chắn máy tính đã cài make
 
-### Một số lệnh để chạy chương trình
-#### lưu ý: chuyển đến thư mục WebCore: cd /WebCore
+###### di chuyển đến file VegeFood.cdproj nếu không thấy đoạn code bên dưới thì thêm vào giữa hai thẻ Project
+
+    <ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="3.1.8" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="3.1.8" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.8" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
+	</ItemGroup>
+###### hoặc có thể gọi lệnh: make install
+
+### Sử dụng
+##### lưu ý: chuyển đến thư mục WebCore: cd /WebCore
 - Enable secret storage chạy lệnh: make initsecret
 - thêm google clientId vào secret store: make googleclientid clientId="Your Client Id"
 - thêm google clientSecret vào secret store: make googlesecret clientSecret="Your Client Secret"

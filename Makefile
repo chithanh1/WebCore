@@ -11,11 +11,11 @@ initsecret:
 listsecret:
 	dotnet user-secrets list --project ./VegeFood
 
-googleclientid clientId = "-client-id-":
-	dotnet user-secrets set "Authentication:Google:ClientId" $(clientId) --project ./VegeFood
+googleclientid:
+	dotnet user-secrets set "Authentication:Google:ClientId" ${clientId} --project ./VegeFood
 
-googlesecret clientSecret "-client-secret-":
-	dotnet user-secrets set "Authentication:Google:ClientSecret" $(clientSecret) --project ./VegeFood
+googlesecret:
+	dotnet user-secrets set "Authentication:Google:ClientSecret" ${clientSecret} --project ./VegeFood
 
 run:
 	dotnet run --launch-profile VegeFood --project ./VegeFood
